@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  title: TodoList
+  description: API
+  version: 0.1.9
+
+servers:
+  - url: https://movie-quotes-back-production.up.railway.app/api
+    description: production server
+  - url: http://localhost:3000/api
+    description: local server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  /newItem:
+    post:
+      tags:
+        - Auth
+      requestBody:
+        description: add the new todo item
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                title:
+                  type: string
+                completed:
+                  type: boolean
+      responses:
+        "201":
+          description: new item is added
