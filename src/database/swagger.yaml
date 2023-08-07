@@ -5,21 +5,21 @@ info:
   version: 0.1.9
 
 servers:
-  - url: https://movie-quotes-back-production.up.railway.app/api
-    description: production server
+  # - url: https://movie-quotes-back-production.up.railway.app/api
+  # description: production server
   - url: http://localhost:3000/api
     description: local server
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+# components:
+#   securitySchemes:
+#     bearerAuth:
+#       type: http
+#       scheme: bearer
+#       bearerFormat: JWT
 paths:
   /newItem:
     post:
       tags:
-        - Auth
+        - Todo
       requestBody:
         description: add the new todo item
         required: true
@@ -28,10 +28,42 @@ paths:
             schema:
               type: "object"
               properties:
-                title:
+                task:
                   type: string
                 completed:
                   type: boolean
       responses:
         "201":
           description: new item is added
+  /items:
+    get:
+      tags:
+        - Todo
+      responses:
+        "200":
+          description: get all items data
+  /items/{id}:
+    put:
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      tags:
+        - Todo
+      responses:
+        "200":
+          description: update item content
+    delete:
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      tags:
+        - Todo
+      responses:
+        "200":
+          description: item deleted successfully

@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 const connect = () => {
   try {
     const url = process.env.MONGO_URL;
-    mongoose.connect(url || "");
+    mongoose.connect(url);
+    console.log("connected");
   } catch (error) {
     console.log(error);
   }
