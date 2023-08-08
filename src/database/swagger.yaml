@@ -67,3 +67,10 @@ paths:
       responses:
         "200":
           description: item deleted successfully
+  /items/completed:
+    delete:
+      tags:
+        - Todo
+      responses:
+        "200":
+          description: completed items deleted successfully

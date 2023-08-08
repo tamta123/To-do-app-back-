@@ -64,3 +64,16 @@ export const deleteItem = async (req, res) => {
     res.status(401).json({ error: "An error occurred" });
   }
 };
+
+export const deleteCompletedItems = async (req, res) => {
+  try {
+    const result = await TodoItem.deleteMany({ completed: true });
+    if (result.deletedCount > 0) {
+      res.status(200).json("Completed items deleted successfully");
+    } else {
+      res.status(404).json("No completed items found");
+    }
+  } catch (error) {
+    res.status(404).json({ error: "Error deleting the completed items" });
+  }
+};

@@ -7,7 +7,7 @@ const projectsSchema = new Schema({
   },
   completed: {
     type: Schema.Types.Boolean,
-    require: true,
+    require: false,
   },
 });
 
