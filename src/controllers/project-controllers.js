@@ -1,4 +1,4 @@
-import TodoItem from "../models/project.js";
+import TodoItem from "../models/Project.js";
 
 export const crateTodoList = async (req, res) => {
   const { task, completed } = req.body;
