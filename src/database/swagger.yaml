@@ -6,7 +6,7 @@ info:
 
 servers:
   - url: https://to-do-app-back-production.up.railway.app/api
-  description: production server
+  # description: production server
   - url: http://localhost:3000/api
     description: local server
 # components:
